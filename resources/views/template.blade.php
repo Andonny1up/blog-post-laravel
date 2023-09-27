@@ -16,8 +16,8 @@
                 <a href="{{route('home')}}">
                     <img src="{{asset('images/elefante.png')}}" alt="logo" class="h-12">
                 </a>
-                <form action="">
-                    <input type="text" placeholder="Buscar">
+                <form action="{{route('home')}}" method="GET" class="flex-grow">
+                    <input class="border border-gray-200 rounded py-2 px-4 w-1/2" type="text" name="search" placeholder="Buscar" value="{{request('search')}}">
                 </form>
             </div>
             @auth
@@ -27,7 +27,6 @@
             @endauth
         </header>
 
-        </div>
         <div class="opacity-60 h-px mb-8" style="
             background: linear-gradient(to right, 
             rgba(200, 200, 200, 0) 0%,    /* Rojo */
@@ -37,13 +36,8 @@
             );
         "></div>
     </div>
-    <ul>
-        <li><a href="{{route('home')}}">Home</a></li>
-        <li><a href="{{route('blog')}}">Blog</a></li>
-        
-    </ul>
-    <br>
-    <main>
+    
+    <main class="container px-4 mx-auto">
         @yield('content')
     </main>
     <p class="py-16">
